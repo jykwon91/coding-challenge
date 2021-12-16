@@ -1,0 +1,45 @@
+Preface:
+Please complete the following coding challenge in one of the following programming languages. You may wish to make your decision based on which language you are most proficient in, or if you are familiar with multiple, which language you feel is best suited to the task.
+    - Java
+    - Javascript
+    - Typescript
+    - Python
+
+Overview:
+Sequences of work processed by data streaming architectures can be broken up into three essential steps:
+    1. Consume
+    2. Transform
+    3. Produce
+
+The Consume step is simple to read in a message of a specified format into the work processor.
+The Transform step contains the bulk of the business logic: using the consumed data as input,
+this step acts on the data, eventually transforming it into resulting ouput of a specific format.
+The final Produce step writes out the outuput to a destination.
+
+Challenge:
+After downloading and unzipping the logs folder containing "logs" files from the attachment, then:
+    1. Create a new directory './Output'
+    2. Create a global tally that will track all log counts for a unique email address.
+        {
+            "first.user@domain.com": 389
+        }
+
+        *A sample entry in the global tally should look like this when consumed and transformed to JSON*
+
+    3. Transform/update the global tally from step 2 as you complete step 4.
+    4. For each JSON file in the logs directory:
+        - Consume the JSON contents from the file.
+        - Transform the JSON contents of the file into a tally of total number of logs for each unique email address.
+        - Produce a JSON message of this tally and write it to a .json file in the Output directory with the log ID as the filename. i.e.:
+            {
+                "first.user@domain.com": 2,
+                "another.user@example.com": 4,
+            }
+ 
+            *The transformed JSON should have the email as the key, and the tally as the value*
+            *This would be written to `./Output/${logId}.json`*
+
+    5. Transform the global tally from step 2 into a JSON object.
+    6. Produce the object from step 5 by writing it to './output.json'
+
+
